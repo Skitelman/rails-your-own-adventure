@@ -1,0 +1,34 @@
+<h1>Create a New Chapter</h1>
+<%= form_for (@chapter) do |f| %>
+  <%= f.label :title %>
+  <br>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :content %>
+  <br>
+  <%= f.text_area :content, cols: 50, rows: 12 %>
+  <br>
+  <h4>What Will Happen Next? </h4>
+  <%= f.fields_for :paths do |paths_form| %>
+    <%= paths_form.label :name, "Choice" %>
+    <%= paths_form.text_field :name %>
+    <%= paths_form.collection_select :next_chapter_id, Chapter.all, :id, :title, include_blank: true %>
+    <%= paths_form.fields_for (Chapter.new) do |new_chapter| %>
+    <%= new_chapter.label :title, "or create a new chapter" %>
+    <%= new_chapter.text_field :title %>
+    <% end %>
+    <br></br>
+ <% end %>
+  <br></br>
+  <%= f.submit %>
+<% end %>
+
+
+<!--  What I want params to look like
+
+params = {
+chapter => {:title => "Chapter title", :content => "Chapter content"}
+paths => [{:name => "Path Name", :next_chapter_id => "", :next_chapter_name => ""}]
+}
+
+-->

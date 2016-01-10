@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @chapter.title  %></title>
+  </head>
+  <body>
+    <h1><%= @chapter.title  %></h1>
+
+    <p>
+      <%= @chapter.content %>
+    </p>
+
+    <ul>
+    <% @chapter.paths.each do |path| %>
+      <li><%= link_to path.name, "/chapters/#{path.next_chapter_id}" %> </li>
+    <% end %>
+    </ul>
+    <br>
+    <%= link_to "Edit #{@chapter.title}", edit_chapter_path %>
+    <br>
+    <%= link_to "Delete #{@chapter.title}", "/chapters/#{@chapter.id}/delete" %>
+  </body>
+</html>
