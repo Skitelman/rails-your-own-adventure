@@ -1,7 +1,7 @@
-<h1>All Chapters</h1>
+<h1>All Chapters in <%= @story.title %></h1>
 <ul>
 <% @chapters.each do |chapter| %>
-  <li><%= link_to chapter.title, chapter%></li>
+  <li><%= link_to chapter.title, story_chapter_path(chapter.story, chapter)%></li>
 <% end %>
 </ul>
-<%= link_to "Create a New Chapter", new_chapter_path %>
+<%= link_to "Create a New Chapter", new_story_chapter_path(@story) %>

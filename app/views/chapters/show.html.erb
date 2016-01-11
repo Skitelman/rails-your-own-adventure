@@ -13,12 +13,12 @@
 
     <ul>
     <% @chapter.paths.each do |path| %>
-      <li><%= link_to path.name, "/chapters/#{path.next_chapter_id}" %> </li>
+      <li><%= link_to path.name, "/stories/#{@chapter.story_id}/chapters/#{path.next_chapter_id}" %> </li>
     <% end %>
     </ul>
     <br>
-    <%= link_to "Edit #{@chapter.title}", edit_chapter_path %>
+    <%= link_to "Edit #{@chapter.title}", edit_story_chapter_path%>
     <br>
-    <%= link_to "Delete #{@chapter.title}", "/chapters/#{@chapter.id}/delete" %>
+    <%= link_to "Delete #{@chapter.title}", "/stories/#{@chapter.story_id}/chapters/#{@chapter.id}/delete" %>
   </body>
 </html>

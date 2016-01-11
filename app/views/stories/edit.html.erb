@@ -1,0 +1,9 @@
+<h1>Edit <%= @story.title %></h1>
+<%= render 'form' %>
+<h3>Or <%= link_to "View and Edit", story_chapters_path(@story) %> the chapters in <%= @story.title %></h3>
+<hr>
+<%= button_to "Delete Story", {:controller => :stories,
+      :action => 'destroy', :id => @story.id }, :method => :delete %>
+<p>
+  This action cannot be undone!
+</p>

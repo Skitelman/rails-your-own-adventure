@@ -13,8 +13,8 @@
       <% end %>
     </p>
     <br>
-    <%= link_to "Return to #{@chapter.title}", @chapter %>
+    <%= link_to "Return to #{@chapter.title}", story_chapter_path(@chapter.story, @chapter) %>
     <br>
-    <%= link_to "All Chapters", chapters_path %>
+    <%= link_to "All Chapters", story_chapters_path(@chapter.story) %>
   </body>
 </html>

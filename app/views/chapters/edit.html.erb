@@ -1,5 +1,5 @@
 <h1>Edit <%= @chapter.title %></h1>
-<%= form_for (@chapter) do |f| %>
+<%= form_for [@chapter.story, @chapter] do |f| %>
   <%= f.label :title %>
   <br>
   <%= f.text_field :title %>
